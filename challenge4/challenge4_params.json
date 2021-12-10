@@ -1,0 +1,30 @@
+[
+	{
+		"ParameterKey": "EnvironmentName",
+		"ParameterValue": "UdacityProject"
+	},
+	{
+		"ParameterKey": "DBVpc",
+		"ParameterValue": "vpc-0828cfac2b707c0a0"
+	},
+	{
+		"ParameterKey": "DBSubnet1",
+		"ParameterValue": "subnet-0944d3ceaeafec825"
+	},
+	{
+		"ParameterKey": "DBSubnet2",
+		"ParameterValue": "subnet-06b206ee4083904c8"
+	},
+	{
+		"ParameterKey": "DBSecurityGroup",
+		"ParameterValue": "sg-0281ffdc85d6c665e"
+	},
+	{
+		"ParameterKey": "Username",
+		"ParameterValue": "admin"
+	},
+	{
+		"ParameterKey": "Password",
+		"ParameterValue": "myadmin12."
+	}
+]

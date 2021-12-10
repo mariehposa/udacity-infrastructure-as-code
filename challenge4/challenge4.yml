@@ -1,0 +1,69 @@
+--- 
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: RDS Storage Encrypted
+
+Parameters:
+
+  EnvironmentName:
+    Description: An environment name that will be prefixed to resource names
+    Type: String
+
+  DBVpc: 
+    Description: Please enter the IP range (CIDR notation) for this VPC
+    Type: String
+
+  DBSubnet1:
+    Description: First private subnet
+    Type: String
+  
+  DBSubnet2:
+    Description: Second private subnet
+    Type: String
+  
+  DBSecurityGroup:
+    Description: Security group
+    Type: String
+
+  Username:
+    Description: A username
+    Type: String
+
+  Password:
+    Description: A password with at least 8 characters
+    Type: String  
+
+Resources:
+
+  myDBSubnetGroup:
+    Type: "AWS::RDS::DBSubnetGroup"
+    Properties: 
+      DBSubnetGroupDescription: "Subnets for the DB"
+      DBSubnetGroupName: "Subnet Group"
+      SubnetIds:
+      - !Ref DBSubnet1
+      - !Ref DBSubnet2
+  
+  MyDB: 
+    Type: "AWS::RDS::DBInstance"
+    Properties: 
+      VPCSecurityGroups: [!Ref DBSecurityGroup]
+      PubliclyAccessible: false
+      MultiAZ: false
+      AllocatedStorage: 20
+      DBInstanceClass: db.t2.small
+      Engine: "mysql"
+      MasterUsername: !Sub "${Username}"
+      MasterUserPassword: !Sub "${Password}"
+      DBSubnetGroupName: !Ref myDBSubnetGroup
+      Tags: 
+        - 
+          Key: "Name"
+          Value: !Sub "${EnvironmentName} MYSQL RDS"
+    DeletionPolicy: "Retain"
+
+Outputs:
+
+  InstanceId:
+    Description: InstanceId of the newly created RDS Instance
+    Value: !Ref MyDB                         
