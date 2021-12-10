@@ -5,14 +5,14 @@
 	},
 	{
 		"ParameterKey": "VpcForServer",
-		"ParameterValue": "vpc-0cece19e2776c689e"
+		"ParameterValue": "vpc-0828cfac2b707c0a0"
 	},
 	{
 		"ParameterKey": "SubnetForServer",
-		"ParameterValue": "subnet-076c43266de960fe2"
+		"ParameterValue": "subnet-057527ceb49b0d7b9"
 	},
 	{
 		"ParameterKey": "AMIForServer",
-		"ParameterValue": "ami-02e136e904f3da870"
+		"ParameterValue": "ami-0ed9277fb7eb570c9"
     }
 ]
